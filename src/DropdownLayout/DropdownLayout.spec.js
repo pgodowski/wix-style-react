@@ -86,11 +86,11 @@ describe('DropdownLayout', () => {
     expect(driver.optionsLength()).toBe(7);
     expect(driver.optionContentAt(0)).toBe('Option 1');
     expect(driver.isOptionADivider(4)).toBeTruthy();
-    expect(driver.optionByHook('dropdown-item-divider1').isDivider()).toBeTruthy();
+    expect(driver.optionByHook('dropdown-divider-divider1').isDivider()).toBeTruthy();
     expect(driver.optionContentAt(5)).toBe('Option 4');
 
     expect(driver.isOptionADivider(6)).toBeTruthy();
-    expect(driver.optionByHook('dropdown-item-6').isDivider()).toBeTruthy();
+    expect(driver.optionByHook('dropdown-divider-6').isDivider()).toBeTruthy();
   });
 
   it('should not hover any option by default', () => {

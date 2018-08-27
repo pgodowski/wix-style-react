@@ -219,7 +219,7 @@ class DropdownLayout extends WixComponent {
   renderOption({option, idx}) {
     const {value, id, disabled, title, overrideStyle, linkTo} = option;
     if (value === DIVIDER_OPTION_VALUE) {
-      return this.renderDivider(idx, `dropdown-item-${id || idx}`);
+      return this.renderDivider(idx, `dropdown-divider-${id || idx}`);
     }
 
     const content = this.renderItem({
