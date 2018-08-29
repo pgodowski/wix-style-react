@@ -423,12 +423,23 @@ describe('Input', () => {
     });
   });
 
-  describe('focus function', () => {
-    it('calling focus should give focus to the input', () => {
+  describe('driver.focus', () => {
+    it('calling driver.focus (wihtout enzyme) should give focus to the input', () => {
       const driver = createDriver(<Input autoFocus={false}/>);
       expect(driver.isFocus()).toBeFalsy();
       driver.focus();
       expect(driver.isFocus()).toBeTruthy();
+    });
+  });
+
+  describe('Input.focus', () => {
+    it('calling driver.focus (with enzyme) with options, should call the Input instance focus method and pass options', () => {
+      const wrapper = mount(<Input autoFocus={false} dataHook="test"/>);
+      const focusMock = jest.fn();
+      wrapper.instance().input.focus = focusMock;
+      const driver = enzymeInputTestkitFactory({wrapper, dataHook: 'test'});
+      driver.focus({preventScroll: true});
+      expect(focusMock).toHaveBeenCalledWith({preventScroll: true});
     });
   });
 

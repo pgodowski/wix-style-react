@@ -3,6 +3,10 @@ import ReactTestUtils from 'react-dom/test-utils';
 import ReactDOM from 'react-dom';
 import styles from './Input.scss';
 
+function isReactWrapper(obj) {
+  return obj && obj.instance;
+}
+
 const inputDriverFactory = ({element, wrapper, component}) => {
   const input = element && element.querySelector('input');
   const clearButton = element && element.querySelector(`[data-hook=input-clear-button]`);
@@ -13,9 +17,13 @@ const inputDriverFactory = ({element, wrapper, component}) => {
 
   const driver = {
     trigger: (trigger, event) => ReactTestUtils.Simulate[trigger](input, event),
-    focus: () => {
-      input.focus();
-      ReactTestUtils.Simulate.focus(input);
+    focus: options => {
+      if (isReactWrapper(wrapper)) {
+        wrapper.instance().focus(options);
+      } else {
+        input.focus(options);
+        ReactTestUtils.Simulate.focus(input);
+      }
     },
     blur: () => {
       input.blur();
