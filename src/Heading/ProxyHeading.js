@@ -7,7 +7,7 @@ import ellipsedStyle from '../common/EllipsedTooltip/EllipsedTooltip.st.css';
 
 const EllipsedHeading = withEllipsedTooltip({showTooltip: true})(Heading);
 
-const ProxyHeading = ({ellipsis, ...props}) => ellipsis ?
+const ProxyHeading = ({ellipsis, ...props}) => ellipsis && typeof props.children === 'string' ?
   <EllipsedHeading {...ellipsedStyle('root', {}, props)} {...props}/> :
   <Heading {...props}/>;
 

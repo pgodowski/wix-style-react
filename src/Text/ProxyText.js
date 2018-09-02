@@ -7,7 +7,7 @@ import ellipsedStyle from '../common/EllipsedTooltip/EllipsedTooltip.st.css';
 
 const EllipsedText = withEllipsedTooltip({showTooltip: true})(Text);
 
-const ProxyText = ({ellipsis, ...props}) => ellipsis ?
+const ProxyText = ({ellipsis, ...props}) => ellipsis && typeof props.children === 'string' ?
   <EllipsedText {...ellipsedStyle('root', {}, props)} {...props}/> :
   <Text {...props}/>;
 
