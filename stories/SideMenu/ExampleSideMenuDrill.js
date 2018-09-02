@@ -3,6 +3,7 @@ import SideMenuDrill from 'wix-style-react/SideMenuDrill';
 import SideMenu from 'wix-style-react/SideMenu';
 import Button from 'wix-style-react/Button';
 import Tooltip from 'wix-style-react/Tooltip';
+import Heading from 'wix-style-react/Heading';
 import HelpIcon from 'wix-style-react/new-icons/InfoCircle';
 import ChatIcon from 'wix-style-react/new-icons/Chat';
 import ExternalLink from 'wix-style-react/new-icons/ExternalLink';
@@ -145,21 +146,18 @@ class ExampleSideMenuDrill extends React.Component {
   }
 
   renderHeader() {
+    const title = 'wix-style-react v5.0.0';
     return (
       <SideMenu.Header>
-        <div style={{padding: '26px 30px', fontSize: '20px', color: 'white'}}>
-          <Tooltip
-            content="wix-style-react"
-            placement="bottom"
-            alignment="left"
-            dataHook="site-name-tooltip"
-            maxWidth="250"
-            >
-            <div style={{display: 'flex'}}>
-              <span style={{fontSize: '20px'}}>wix-style-react</span>
-              <ExternalLink style={{top: 1, position: 'relative'}}/>
-            </div>
-          </Tooltip>
+        <div style={{padding: '26px 30px', width: '100%', boxSizing: 'border-box'}}>
+          <div style={{display: 'flex'}}>
+            <Heading
+              appearance="H3"
+              light
+              ellipsis
+              >{title}</Heading>
+            <ExternalLink/>
+          </div>
           <div style={{marginTop: '5px', fontSize: '13px'}}>Role: Owner</div>
         </div>
       </SideMenu.Header>
