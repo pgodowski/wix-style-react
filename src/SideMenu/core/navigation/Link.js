@@ -6,10 +6,14 @@ import styles from './styles.scss';
 
 const Link = ({children, isDiminishedHover, isActive, withArrow, badge, dataHook, disabled, ...rest}) =>
   <LinkLayout isDiminishedHover={isDiminishedHover} isActive={isActive} disabled={disabled}>
-    <a data-hook={dataHook} {...rest}>
-      {children}
-      {badge}
-      {withArrow && <span className={styles.linkArrow}><ChevronRight/></span>}
+    <a data-hook={dataHook} {...rest} style={{display: 'flex', alignItems: 'center'}}>
+      <span style={{flex: '1'}}>
+        {children}
+      </span>
+      <span>
+        {badge}
+        {withArrow && <span className={styles.linkArrow}><ChevronRight/></span>}
+      </span>
     </a>
   </LinkLayout>;
 

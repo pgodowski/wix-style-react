@@ -85,9 +85,6 @@ $padding-vertical: 14px;
 }
 
 .linkArrow {
-  position: absolute;
-  right: 25px;
-  top: 9px;
   opacity: 0;
   font-size: 10px;
   transition: 0.5s;
@@ -156,8 +153,6 @@ $padding-vertical: 14px;
 
 :global(.rtl) {
   .linkArrow {
-    left: 25px;
-    right: auto;
     transform: scaleX(-1);
   }
 
